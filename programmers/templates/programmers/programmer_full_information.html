@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Programmer Detail</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'programmers/css/styles_for_programmer_full_information.css.' %}">
+</head>
+<body>
+    <h1>Programmer Detail</h1>
+    <h2>Programmer Information</h2>
+    <p><strong>Username:</strong> {{ programmer.user.username }}</p>
+    <p><strong>First Name:</strong> {{ programmer.user.first_name }}</p>
+    <p><strong>Last Name:</strong> {{ programmer.user.last_name }}</p>
+    <p><strong>Age:</strong> {{ programmer.age }}</p>
+    <p><strong>Language:</strong> {{ programmer.language }}</p>
+    <p><strong>Framework:</strong> {{ programmer.framework }}</p>
+    <p><strong>Experience:</strong> {{ programmer.experience }} years</p>
+
+    <h2>Projects</h2>
+    <ul>
+        {% for project in projects %}
+            <li>
+                <p><strong>Name:</strong> {{ project.name }}</p>
+                <p><strong>Description:</strong> {{ project.description }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

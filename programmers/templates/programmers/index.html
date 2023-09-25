@@ -1,0 +1,24 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>All Programmers</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'programmers/css/styles_for_index.css' %}">
+</head>
+<body>
+    <h1>All Programmers</h1>
+    <ul>
+        {% for programmer in programmers %}
+            <li>
+
+                <p><strong>First Name:</strong> <a href="{% url 'programmer_full_information' programmer.id %}" class="programmer-link">{{ programmer.user.first_name }}</a></p>
+                <p><strong>Last Name:</strong> {{ programmer.user.last_name }}</p>
+
+            </li>
+        {% endfor %}
+    </ul>
+
+        <a href="#" class="add-programmer-link">Add New Programmer</a>
+</body>
+</html>
