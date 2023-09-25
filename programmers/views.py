@@ -17,5 +17,9 @@ def programmer_full_information(request, programmer_id):
                   {'programmer': programmer, 'projects': projects})
 
 
+
+def new_programmer(request):
+    return render(request, 'programmers/add_new_programmer.html', )
+
 def page_not_found_404(request, exception):
     return render(request, 'programmers/page_not_found.html', status=404)

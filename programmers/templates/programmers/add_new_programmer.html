@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Programmer Registration</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'programmers/css/styles_for_add_new_programmer.css' %}">
+</head>
+<body>
+    <h1>Programmer Registration</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="first_name">First Name:</label>
+        <input type="text" id="first_name" name="first_name" required><br><br>
+
+        <label for="last_name">Last Name:</label>
+        <input type="text" id="last_name" name="last_name" required><br><br>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required><br><br>
+
+        <label for="language">Language:</label>
+        <input type="text" id="language" name="language" required><br><br>
+
+        <label for="framework">Framework:</label>
+        <input type="text" id="framework" name="framework" required><br><br>
+
+        <label for="experience">Experience (years):</label>
+        <input type="number" id="experience" name="experience" required><br><br>
+
+        <input type="submit" value="Register">
+    </form>
+</body>
+</html>
