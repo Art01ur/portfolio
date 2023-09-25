@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 
-from .models import Programmer
+from .models import Programmer, Project
 
 
 # Create your views here.
@@ -19,7 +19,7 @@ def programmer_full_information(request, programmer_id):
 
 
 def new_programmer(request):
-    return render(request, 'programmers/add_new_programmer.html', )
+    return render(request, 'programmers/add_new_programmer.html')
 
 
 def new_programmer_data(request):
@@ -47,6 +47,26 @@ def new_programmer_data(request):
         )
         return redirect('home')
 
+
+def new_project(request):
+    programmers = Programmer.objects.all()
+    return render(request, 'programmers/new_project.html', {'programmers': programmers})
+
+
+def new_project_data(request):
+    if request.method == 'POST':
+        programmer_id = request.POST.get('programmer')
+        name = request.POST.get('name')
+        description = request.POST.get('description')
+
+        programmer = Programmer.objects.get(pk=programmer_id)
+        new_proj = Project(
+            programmer=programmer,
+            name=name,
+            description=description
+        )
+        new_proj.save()
+    return redirect('home')
 
 def page_not_found_404(request, exception):
     return render(request, 'programmers/page_not_found.html', status=404)

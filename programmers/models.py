@@ -10,7 +10,7 @@ class Programmer(models.Model):
     experience = models.IntegerField()
 
     def __str__(self):
-        return self.user
+        return self.user.first_name
 
 
 class Project(models.Model):

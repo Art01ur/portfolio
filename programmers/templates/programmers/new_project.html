@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Project Registration</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'programmers/css/styles_for_new_project.css' %}">
+</head>
+<body>
+<h1>Project Registration</h1>
+<form method="post" action="{% url 'new_project_data' %}">
+    {% csrf_token %}
+    <label for="programmer">Programmer:</label>
+    <select id="programmer" name="programmer" required>
+
+        {% for programmer in programmers %}
+        <option value="{{ programmer.id }}">{{ programmer }}</option>
+        {% endfor %}
+    </select><br><br>
+
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required><br><br>
+
+    <label for="description">Description:</label>
+    <textarea id="description" name="description" required></textarea><br><br>
+
+    <input type="submit" value="Register">
+</form>
+</body>
+</html>
+
