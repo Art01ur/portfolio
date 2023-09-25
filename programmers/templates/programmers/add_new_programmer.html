@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Programmer Registration</h1>
-    <form method="post">
+    <form method="post" action="{% url 'new_programmer_data' %}">
         {% csrf_token %}
         <label for="first_name">First Name:</label>
         <input type="text" id="first_name" name="first_name" required><br><br>
