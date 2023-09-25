@@ -8,7 +8,6 @@
 <body>
     <h1>Programmer Detail</h1>
     <h2>Programmer Information</h2>
-    <p><strong>Username:</strong> {{ programmer.user.username }}</p>
     <p><strong>First Name:</strong> {{ programmer.user.first_name }}</p>
     <p><strong>Last Name:</strong> {{ programmer.user.last_name }}</p>
     <p><strong>Age:</strong> {{ programmer.age }}</p>
@@ -25,5 +24,6 @@
             </li>
         {% endfor %}
     </ul>
+        <a href="#" class="add-projects-link">Add New Project</a>
 </body>
 </html>
